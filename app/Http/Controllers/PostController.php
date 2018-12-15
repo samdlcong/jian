@@ -12,11 +12,16 @@ class PostController extends Controller
         return view("post/index");
     }
 
+    // 文章详情页
+    public function show()
+    {
+        return view("post/show");
+    }
 
     // 创建页面
     public function create()
     {
-
+        return view("post/create");
     }
 
     // 创建逻辑
@@ -28,7 +33,7 @@ class PostController extends Controller
     // 编辑页面
     public function edit()
     {
-
+        return view("post/edit");
     }
 
     // 编辑逻辑
@@ -37,7 +42,7 @@ class PostController extends Controller
 
     }
 
-    // 创建逻辑
+    // 删除逻辑
     public function delete()
     {
 
