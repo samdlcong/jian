@@ -63,7 +63,7 @@ class PostController extends Controller
         $post->save();
 
         // 渲染
-
+        return redirect("/posts/{$post->id}");
     }
 
     // 删除逻辑
