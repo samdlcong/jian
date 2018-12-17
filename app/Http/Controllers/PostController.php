@@ -32,7 +32,7 @@ class PostController extends Controller
         $params = request(['title','content']);
         Post::create($params);
 
-        //dd(request()->all());
+        return redirect("/posts");
     }
 
     // 编辑页面
