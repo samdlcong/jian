@@ -29,6 +29,12 @@ class PostController extends Controller
     // 创建逻辑
     public function store()
     {
+        // 验证
+        $this->validate(request(),[
+            'title'=>'required|string|max:100|min:5',
+            'content'=> 'required|string|min:10',
+        ]);
+
         $params = request(['title','content']);
         Post::create($params);
 
