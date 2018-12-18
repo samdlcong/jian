@@ -67,9 +67,11 @@ class PostController extends Controller
     }
 
     // 删除逻辑
-    public function delete()
+    public function delete(Post $post)
     {
+        $post->delete();
 
+        return redirect("/posts");
     }
 
     public function imageUpload(Request $request)
