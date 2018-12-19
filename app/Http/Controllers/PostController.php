@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,7 @@ class PostController extends Controller
     // 列表
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->paginate(5);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
         return view("post/index", compact('posts'));
     }
 
@@ -31,9 +32,9 @@ class PostController extends Controller
     public function store()
     {
         // 验证
-        $this->validate(request(),[
-            'title'=>'required|string|max:100|min:5',
-            'content'=> 'required|string|min:10',
+        $this->validate(request(), [
+            'title' => 'required|string|max:100|min:5',
+            'content' => 'required|string|min:10',
         ]);
 
         // 逻辑
@@ -55,8 +56,8 @@ class PostController extends Controller
     {
         // 验证
         $this->validate(request(), [
-            'title'=>'required|string|max:100|min:5',
-            'content'=>'required|string|min:10',
+            'title' => 'required|string|max:100|min:5',
+            'content' => 'required|string|min:10',
         ]);
 
         $this->authorize('update', $post);
@@ -81,6 +82,21 @@ class PostController extends Controller
     public function imageUpload(Request $request)
     {
         $path = $request->file('wangEditorH5File')->storePublicly(md5(time()));
-        return asset('storage/'.$path);
+        return asset('storage/' . $path);
+    }
+
+    // 添加评论
+    public function comment(Post $post)
+    {
+        $this->validate(request(), [
+            'content'=>'required|min:3',
+        ]);
+
+        $comment = new Comment();
+        $comment->user_id = Auth::id();
+        $comment->content = \request('content');
+        $post->comments()->save($comment);
+
+        return back();
     }
 }
