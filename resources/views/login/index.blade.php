@@ -45,11 +45,13 @@
                 <input type="checkbox" value="1" name="is_remember"> 记住我
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+        @include("layout.error")
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
         <a href="/register" class="btn btn-lg btn-primary btn-block" type="submit">去注册>></a>
     </form>
 
 </div> <!-- /container -->
-
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
