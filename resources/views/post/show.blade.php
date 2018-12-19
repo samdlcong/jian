@@ -31,12 +31,14 @@
 
                 <!-- List group -->
                 <ul class="list-group">
+                    @foreach($post->comments as $comment)
                     <li class="list-group-item">
-                        <h5>2017-05-28 10:15:08 by Kassandra Ankunding2</h5>
+                        <h5>{{$comment->created_at->toFormattedDateString()}} by {{$comment->user->name}}</h5>
                         <div>
-                            这是第一个评论这是第一个评论这是第一个评论这是第一个评论这是第一个评论这是第一个评论这是第一个评论这是第一个评论这是第一个评论
+                            {{$comment->content}}
                         </div>
                     </li>
+                    @endforeach
                 </ul>
             </div>
 
