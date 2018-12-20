@@ -17,7 +17,7 @@ Route::get('/register', '\App\Http\Controllers\RegisterController@index');
 // 注册行为
 Route::post('/register', '\App\Http\Controllers\RegisterController@register');
 // 登录页面
-Route::get('/login', '\App\Http\Controllers\LoginController@index');
+Route::get('/login', '\App\Http\Controllers\LoginController@index')->name('login');
 // 登录行为
 Route::post('/login', '\App\Http\Controllers\LoginController@login');
 
@@ -38,6 +38,8 @@ Route::group(['middleware'=>'auth:web'], function(){
     Route::get('/posts/create','\App\Http\Controllers\PostController@create');
     Route::post('/posts','\App\Http\Controllers\PostController@store');
 
+    // 搜索
+    Route::get('/posts/search', '\App\Http\Controllers\PostController@search');
     // 文章详情页
     Route::get('/posts/{post}','\App\Http\Controllers\PostController@show');
 
@@ -58,6 +60,7 @@ Route::group(['middleware'=>'auth:web'], function(){
     Route::get('/posts/{post}/zan', '\App\Http\Controllers\PostController@zan');
     // 取消赞
     Route::get('/posts/{post}/unzan', '\App\Http\Controllers\PostController@unzan');
+
 });
 
 
