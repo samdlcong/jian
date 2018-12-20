@@ -714,12 +714,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/scout.git",
-                "reference": "591a0419fe47b0c379be652c532cb4f669e63769"
+                "reference": "ac7e8d2de8fba37473e3a802347d8f24141993cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/scout/zipball/591a0419fe47b0c379be652c532cb4f669e63769",
-                "reference": "591a0419fe47b0c379be652c532cb4f669e63769",
+                "url": "https://api.github.com/repos/laravel/scout/zipball/ac7e8d2de8fba37473e3a802347d8f24141993cd",
+                "reference": "ac7e8d2de8fba37473e3a802347d8f24141993cd",
                 "shasum": ""
             },
             "require": {
@@ -742,7 +742,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.0-dev"
+                    "dev-master": "5.0-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -771,7 +771,7 @@
                 "laravel",
                 "search"
             ],
-            "time": "2018-12-11T20:35:14+00:00"
+            "time": "2018-08-05T18:16:13+00:00"
         },
         {
             "name": "laravel/tinker",
