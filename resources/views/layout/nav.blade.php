@@ -1,5 +1,6 @@
 <div class="blog-masthead">
     <div class="container">
+        <form action="/posts/search" method="GET">
         <ul class="nav navbar-nav navbar-left">
             <li>
                 <a class="blog-nav-item " href="/posts">首页</a>
@@ -37,5 +38,6 @@
                 <li><a class="blog-nav-item" href="/login">去登录</a></li>
             @endif
         </ul>
+        </form>
     </div>
 </div>

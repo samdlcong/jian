@@ -120,8 +120,16 @@ class PostController extends Controller
         return back();
     }
 
+    // 搜索结果页
     public function search()
     {
-        return view("post/search");
+        $this->validate(request(), [
+            'query'=>'required'
+        ]);
+
+        $query = request('query');
+        $posts = Post::search($query)->paginate(2);
+
+        return view('/post/search',compact('posts','query'));
     }
 }

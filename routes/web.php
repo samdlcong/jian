@@ -38,7 +38,7 @@ Route::group(['middleware'=>'auth:web'], function(){
     Route::get('/posts/create','\App\Http\Controllers\PostController@create');
     Route::post('/posts','\App\Http\Controllers\PostController@store');
 
-    // 搜索
+    // 搜索页面
     Route::get('/posts/search', '\App\Http\Controllers\PostController@search');
     // 文章详情页
     Route::get('/posts/{post}','\App\Http\Controllers\PostController@show');
