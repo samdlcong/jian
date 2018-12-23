@@ -61,6 +61,12 @@ Route::group(['middleware'=>'auth:web'], function(){
     // 取消赞
     Route::get('/posts/{post}/unzan', '\App\Http\Controllers\PostController@unzan');
 
+    // 个人中心
+    Route::get('/user/{user}', '\App\Http\Controllers\UserController@show');
+    // 关注用户
+    Route::get('/user/{user}/fan', '\App\Http\Controllers\UserController@fan');
+    // 取消关注
+    Route::get('/user/{user}/unfan', '\App\Http\Controllers\UserController@unfan');
 });
 
 
