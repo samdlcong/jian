@@ -40,14 +40,26 @@ class UserController extends Controller
     }
 
     // 关注用户
-    public function fan()
+    public function fan(User $user)
     {
+        $me = \Auth::user();
+        $me->doFan($user->id);
 
+        return [
+            'error'=>0,
+            'msg'=> ''
+        ];
     }
 
     // 取消关注
-    public function unfan()
+    public function unfan(User $user)
     {
+        $me = \Auth::user();
+        $me->doUnfan($user->id);
 
+        return [
+            'error'=>0,
+            'msg'=>''
+        ];
     }
 }
