@@ -5,6 +5,7 @@ namespace App;
 use App\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Scout\Searchable;
+use PhpParser\Builder;
 
 class Post extends Model
 {
@@ -49,5 +50,24 @@ class Post extends Model
     public function zans()
     {
         return $this->hasMany('App\Zan');
+    }
+
+    // 属于某个作者的文章
+    public function scopeAuthorBy(Builder $query, $user_id)
+    {
+        return $query->where('user_id', $user_id);
+    }
+
+    public function postTopics()
+    {
+        return $this->hasMany(PostTopic::class, 'post_id', 'id');
+    }
+
+    // 不属于某个专题的文章
+    public function scopeTopicNotBy(Builder $query, $topic_id)
+    {
+        return $query->doesntHave('postTopics', 'and', function ($q) use($topic_id) {
+           $q->where('topic_id', $topic_id);
+        });
     }
 }
