@@ -3,9 +3,9 @@
 namespace App;
 
 use App\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Scout\Searchable;
-use PhpParser\Builder;
 
 class Post extends Model
 {
