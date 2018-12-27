@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// 文章列表页
+Route::get('/posts','\App\Http\Controllers\PostController@index');
 
 // 用户模块
 // 注册页面
@@ -20,9 +22,6 @@ Route::post('/register', '\App\Http\Controllers\RegisterController@register');
 Route::get('/login', '\App\Http\Controllers\LoginController@index')->name('login');
 // 登录行为
 Route::post('/login', '\App\Http\Controllers\LoginController@login');
-
-// 文章列表页
-Route::get('/posts','\App\Http\Controllers\PostController@index');
 
 Route::group(['middleware'=>'auth:web'], function(){
     // 登出行为

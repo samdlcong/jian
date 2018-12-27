@@ -10,6 +10,8 @@ namespace App\Admin\Controllers;
 
 class HomeController extends Controller
 {
+    protected  $loginPath = 'admin/login';
+
     public function index()
     {
         return view('admin/home/index');
