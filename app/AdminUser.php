@@ -36,6 +36,6 @@ class AdminUser extends Authenticatable
     // 用户是否有权限
     public function hasPermission($permission)
     {
-        // TODO
+        return $this->isInRoles($permission->roles);
     }
 }

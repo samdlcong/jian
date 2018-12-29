@@ -25,4 +25,10 @@ class AdminRole extends Model
     {
         return $this->permissions()->detach($permission);
     }
+
+    // 判断角色是否有权限
+    public function hasPermission($permission)
+    {
+        return $this->permissions->contains($permission);
+    }
 }
