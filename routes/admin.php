@@ -32,7 +32,7 @@ Route::group(['prefix'=>'admin'], function(){
         Route::get('/roles/create', '\App\Admin\Controllers\RoleController@create');
         Route::post('/roles/store', '\App\Admin\Controllers\RoleController@store');
         Route::get('/roles/{role}/permission', '\App\Admin\Controllers\RoleController@permission');
-        Route::post('/roles/{role}/permission', '\App\Admin\Controllers\RoleController@stroePermission');
+        Route::post('/roles/{role}/permission', '\App\Admin\Controllers\RoleController@storePermission');
 
         // 权限
         Route::get('/permissions', '\App\Admin\Controllers\PermissionController@index');
