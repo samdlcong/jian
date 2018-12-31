@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\AdminRole;
 use App\AdminUser;
 use Illuminate\Http\Request;
 
@@ -38,9 +39,11 @@ class UserController extends Controller
     }
 
     // 用户角色页面
-    public function role()
+    public function role(AdminUser $user)
     {
-        return view('admin/user/role');
+        $roles = AdminRole::all();
+        $myRoles = $user->roles;
+        return view('admin/user/role', compact('roles', 'myRoles', 'user'));
     }
 
     // 储存用户角色
