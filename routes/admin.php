@@ -48,7 +48,7 @@ Route::group(['prefix'=>'admin'], function(){
         });
 
         Route::group(['middleware'=>'can:topic'], function(){
-           Route::resource('topics', '\App\Admin\Controllers\TopicController', ['only'=>['index', 'create', 'store', 'destory']]);
+           Route::resource('topics', '\App\Admin\Controllers\TopicController', ['only'=>['index', 'create', 'store', 'destroy']]);
         });
     });
 
