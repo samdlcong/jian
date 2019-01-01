@@ -50,6 +50,10 @@ Route::group(['prefix'=>'admin'], function(){
         Route::group(['middleware'=>'can:topic'], function(){
            Route::resource('topics', '\App\Admin\Controllers\TopicController', ['only'=>['index', 'create', 'store', 'destroy']]);
         });
+
+        Route::group(['middleware'=>'can:notice'], function(){
+           Route::resource('notices', '\App\Admin\Controllers\NoticeController', ['only'=>['index', 'create', 'store']]);
+        });
     });
 
 });
