@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Jobs\SendMessage;
 use App\Notice;
 use Illuminate\Http\Request;
 
@@ -26,8 +27,8 @@ class NoticeController extends Controller
            'content'=>'required|string'
         ]);
 
-        Notice::create(request(['title', 'content']));
-
+        $notice = Notice::create(request(['title', 'content']));
+        dispatch(new SendMessage($notice));
         return redirect("/admin/notices");
     }
 }
