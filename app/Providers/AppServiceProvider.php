@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Topic;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -23,7 +25,12 @@ class AppServiceProvider extends ServiceProvider
             $view->with('topics', $topics);
         });
 
-
+        DB::listen(function($query){
+            $sql = $query->sql;
+            $bindings = $query->bindings;
+            $time = $query->time;
+            Log::debug(var_export(compact('sql', 'bindings', 'time'),true));
+        });
 
     }
 
